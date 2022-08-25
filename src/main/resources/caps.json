@@ -1,0 +1,10 @@
+{
+  "urlAppium": "http://0.0.0.0:4723/wd/hub",
+  "caps": {
+    "platformName": "Android",
+    "platformVersion": "12.0",
+    "deviceName": "Pixel 2",
+    "appPackage": "com.vkontakte.android",
+    "appActivity": "MainActivity"
+  }
+}
