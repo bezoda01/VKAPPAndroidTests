@@ -1,7 +1,6 @@
 import base.driver.Driver;
 import com.github.automatedowl.tools.AllureEnvironmentWriter;
 import com.google.common.collect.ImmutableMap;
-import org.json.simple.JSONObject;
 import org.testng.IHookCallBack;
 import org.testng.IHookable;
 import org.testng.ITestResult;
@@ -12,9 +11,7 @@ import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
 import static base.Appium.appnav;
-import static settings.Settings.config;
 import static utils.AllureUtils.addAttachment;
-import static utils.HostUtils.getHostName;
 
 public class BaseClass implements IHookable {
 
@@ -28,9 +25,7 @@ public class BaseClass implements IHookable {
         appnav().quit();
         addAttachment(Paths.get("log.log"), "Log");
         AllureEnvironmentWriter.allureEnvironmentWriter(
-                ImmutableMap.<String, String> builder()
-                        .put("ENV", getHostName())
-                        .build(),"allure-results/");
+                ImmutableMap.copyOf(JsonUtils.convertCapsToMap()),"allure-results/");
     }
 
     @Override

@@ -2,6 +2,7 @@ package utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.collect.ImmutableMap;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -75,9 +76,9 @@ public class JsonUtils {
         return object;
     }
 
-    public static HashMap<String, Object> convertCapsToMap() {
+    public static HashMap<String, String> convertCapsToMap() {
         ObjectMapper mapper = new ObjectMapper();
-        HashMap<String, Object> map = null;
+        HashMap<String, String> map = null;
         try {
             map = mapper.readValue(caps.get("caps").toString(), HashMap.class);
         } catch (JsonProcessingException e) {

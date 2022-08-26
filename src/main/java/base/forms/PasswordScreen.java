@@ -6,6 +6,7 @@ import base.elements.TextField;
 import base.uiauto.SelectorObject;
 import base.uiauto.UiSelectors;
 import io.appium.java_client.AppiumBy;
+import io.qameta.allure.Step;
 
 import static base.uiauto.AndroidUIAuto.createAUISelector;
 
@@ -18,6 +19,7 @@ public class PasswordScreen extends BaseScreen {
         super(new TextField(AppiumBy.androidUIAutomator(createAUISelector(new SelectorObject(UiSelectors.RESOURCEID, "com.vkontakte.android:id/title"))), "Password screen"));
     }
 
+    @Step("Input password: {0} and go to news screen")
     public void inputPasswordAndLogIn(String password) {
         passwordField.sendText(password);
         logIn.click();

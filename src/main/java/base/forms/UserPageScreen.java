@@ -15,6 +15,7 @@ public class UserPageScreen extends BaseScreen {
         super(new TextField(AppiumBy.androidUIAutomator(createAUISelector(new SelectorObject(UiSelectors.RESOURCEID, "com.vkontakte.android:id/custom_action_bar_title"))),"User page screen"));
     }
 
+
     public String getPostText() {
         return getIFactory().getTextField(AppiumBy.androidUIAutomator(createAUIScrollable(createAUISelector(
                 new SelectorObject(UiSelectors.RESOURCEID, "com.vkontakte.android:id/post_view")))),"created post").getText();
@@ -34,9 +35,6 @@ public class UserPageScreen extends BaseScreen {
                 new SelectorObject(UiSelectors.RESOURCEID, "com.vkontakte.android:id/iv_likes")))), "button like").click();
     }
 
-    public String getLike() {
-        return getIFactory().getTextField(AppiumBy.androidUIAutomator(createAUISelector(new SelectorObject(UiSelectors.RESOURCEID, "com.vkontakte.android:id/reactions_preview_text"))), "likes amount").getText();
-    }
 
     public String checkPostIsNotExist() {
         return getIFactory().getButton(AppiumBy.androidUIAutomator(createAUIScrollable(createAUISelector(

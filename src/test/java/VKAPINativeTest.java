@@ -3,6 +3,7 @@ import base.forms.LoginScreen;
 import base.forms.NewsScreen;
 import base.forms.PasswordScreen;
 import base.forms.UserPageScreen;
+import io.qameta.allure.Description;
 import models.PostPhotoModel;
 import models.PostSendModel;
 import models.UploadUrlModel;
@@ -18,6 +19,7 @@ import static settings.Settings.*;
 
 public class VKAPINativeTest extends BaseClass {
 
+    @Description("Log in and new post checks")
     @Test
     public void test() {
         LoginScreen entireForm = new LoginScreen();

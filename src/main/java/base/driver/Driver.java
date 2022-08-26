@@ -2,7 +2,6 @@ package base.driver;
 
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Map;
@@ -22,7 +21,7 @@ public class Driver {
 
     private static AndroidDriver getInstance() {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-        Map<String, Object> cap = convertCapsToMap();
+        Map<String, String> cap = convertCapsToMap();
         for(String st: cap.keySet()) {
             desiredCapabilities.setCapability(st, cap.get(st));
         }
