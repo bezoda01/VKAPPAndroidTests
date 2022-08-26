@@ -1,5 +1,4 @@
 import api.ApiApplication;
-import base.Appium;
 import base.forms.LoginScreen;
 import base.forms.NewsScreen;
 import base.forms.PasswordScreen;
@@ -13,6 +12,8 @@ import org.testng.annotations.Test;
 import utils.StringUtils;
 
 import static api.ApiApplication.*;
+import static base.Appium.appnav;
+import static org.testng.Assert.*;
 import static settings.Settings.*;
 
 public class VKAPINativeTest extends BaseClass {
@@ -37,6 +38,15 @@ public class VKAPINativeTest extends BaseClass {
         ApiApplication.editPostMessage(userId, postSendModel.getResponse(), requestPhotoModel.getResponse().get(0).getId(), textSecond);
         String textThird = StringUtils.randomText();
         ApiApplication.addCommentOnPost(userId, postSendModel.getResponse(), textThird);
-
+        appnav().back();
+        newsScreen.goToUserPage();
+        userPageScreen.openComment();
+        assertEquals(userPageScreen.getCommentText(), textThird, "Comment text didn't equals generated text");
+        appnav().back();
+        userPageScreen.setLike();
+        appnav().back();
+        ApiApplication.deletePostById(userId, postSendModel.getResponse());
+        newsScreen.goToUserPage();
+        assertEquals(userPageScreen.checkPostIsNotExist(), "Write your first post", "Post didn't delete");
     }
 }

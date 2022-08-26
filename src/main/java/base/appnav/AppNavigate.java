@@ -1,10 +1,10 @@
 package base.appnav;
 
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.*;
 import java.io.File;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 
 import static base.driver.Driver.getDriver;
 import static settings.Settings.config;
@@ -40,17 +40,7 @@ public class AppNavigate {
         return ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
     }
 
-    public String getHostName() {
-        InetAddress addr = null;
-        try {
-            addr = InetAddress.getLocalHost();
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        }
-        return addr.getHostName();
-    }
-
     public void back() {
-        getDriver().navigate().back();
+        getDriver().pressKey(new KeyEvent(AndroidKey.BACK));;
     }
 }
