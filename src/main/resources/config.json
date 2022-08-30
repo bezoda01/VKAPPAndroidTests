@@ -5,5 +5,9 @@
   "filePath": "src/main/resources/photo.jpg",
   "userId": "",
   "login": "",
-  "password": ""
+  "password": "",
+  "timeouts": {
+    "timeoutImplicit": 0,
+    "timeoutCondition": 30
+  }
 }

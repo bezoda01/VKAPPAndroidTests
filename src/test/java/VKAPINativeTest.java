@@ -1,8 +1,8 @@
 import api.ApiApplication;
-import base.forms.LoginScreen;
-import base.forms.NewsScreen;
-import base.forms.PasswordScreen;
-import base.forms.UserPageScreen;
+import screens.LoginScreen;
+import screens.NewsScreen;
+import screens.PasswordScreen;
+import screens.UserPageScreen;
 import io.qameta.allure.Description;
 import models.PostPhotoModel;
 import models.PostSendModel;

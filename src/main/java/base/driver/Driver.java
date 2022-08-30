@@ -4,9 +4,11 @@ import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 import java.util.Map;
 
 import static settings.Settings.caps;
+import static settings.Settings.timeouts;
 import static utils.JsonUtils.convertCapsToMap;
 
 public class Driver {
@@ -15,6 +17,9 @@ public class Driver {
     public static AndroidDriver getDriver() {
         if (driver == null) {
             driver = getInstance();
+            if((Long) timeouts.get("timeoutImplicit") > 0) {
+                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds((Long) timeouts.get("timeoutImplicit")));
+            }
         }
         return driver;
     }
